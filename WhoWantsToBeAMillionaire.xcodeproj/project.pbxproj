@@ -22,6 +22,8 @@
 		4EEC979F2995589900306D3A /* wrong-answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC979A2995589900306D3A /* wrong-answer.mp3 */; };
 		CEB6B9772995664E0052A012 /* QuestionsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B9762995664E0052A012 /* QuestionsBrain.swift */; };
 		CEB6B979299566680052A012 /* QuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B978299566680052A012 /* QuestionList.swift */; };
+		CEB6B987299572EA0052A012 /* LossGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB6B986299572EA0052A012 /* LossGameViewController.xib */; };
+		CEB6B989299572F10052A012 /* LossGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B988299572F10052A012 /* LossGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		4EEC979A2995589900306D3A /* wrong-answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "wrong-answer.mp3"; sourceTree = "<group>"; };
 		CEB6B9762995664E0052A012 /* QuestionsBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsBrain.swift; sourceTree = "<group>"; };
 		CEB6B978299566680052A012 /* QuestionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionList.swift; sourceTree = "<group>"; };
+		CEB6B986299572EA0052A012 /* LossGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LossGameViewController.xib; sourceTree = "<group>"; };
+		CEB6B988299572F10052A012 /* LossGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LossGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		4EEC978B2995566700306D3A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEB6B985299572CC0052A012 /* LosGameVC */,
 				4EEC9790299556F500306D3A /* StartVC */,
 			);
 			path = Controllers;
@@ -148,6 +153,15 @@
 				4EEC979A2995589900306D3A /* wrong-answer.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		CEB6B985299572CC0052A012 /* LosGameVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEB6B988299572F10052A012 /* LossGameViewController.swift */,
+				CEB6B986299572EA0052A012 /* LossGameViewController.xib */,
+			);
+			path = LosGameVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +230,7 @@
 				4EEC979C2995589900306D3A /* otvet-prinyat.mp3 in Resources */,
 				4EEC977D299555C100306D3A /* Assets.xcassets in Resources */,
 				4EEC977B299555BF00306D3A /* Main.storyboard in Resources */,
+				CEB6B987299572EA0052A012 /* LossGameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EEC97942995579100306D3A /* StartViewController.swift in Sources */,
+				CEB6B989299572F10052A012 /* LossGameViewController.swift in Sources */,
 				CEB6B979299566680052A012 /* QuestionList.swift in Sources */,
 				4EEC978F299556A900306D3A /* Game.swift in Sources */,
 				CEB6B9772995664E0052A012 /* QuestionsBrain.swift in Sources */,
