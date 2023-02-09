@@ -9,21 +9,35 @@
 /* Begin PBXBuildFile section */
 		4EEC9774299555BF00306D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC9773299555BF00306D3A /* AppDelegate.swift */; };
 		4EEC9776299555BF00306D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC9775299555BF00306D3A /* SceneDelegate.swift */; };
-		4EEC9778299555BF00306D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC9777299555BF00306D3A /* ViewController.swift */; };
 		4EEC977B299555BF00306D3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC9779299555BF00306D3A /* Main.storyboard */; };
 		4EEC977D299555C100306D3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC977C299555C100306D3A /* Assets.xcassets */; };
 		4EEC9780299555C100306D3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC977E299555C100306D3A /* LaunchScreen.storyboard */; };
+		4EEC978D2995569200306D3A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC978C2995569200306D3A /* Question.swift */; };
+		4EEC978F299556A900306D3A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC978E299556A900306D3A /* Game.swift */; };
+		4EEC97942995579100306D3A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC97932995579100306D3A /* StartViewController.swift */; };
+		4EEC979B2995589900306D3A /* player-wins-a-million.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97962995589900306D3A /* player-wins-a-million.mp3 */; };
+		4EEC979C2995589900306D3A /* otvet-prinyat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97972995589900306D3A /* otvet-prinyat.mp3 */; };
+		4EEC979D2995589900306D3A /* timer-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97982995589900306D3A /* timer-sound.mp3 */; };
+		4EEC979E2995589900306D3A /* correct-answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97992995589900306D3A /* correct-answer.mp3 */; };
+		4EEC979F2995589900306D3A /* wrong-answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC979A2995589900306D3A /* wrong-answer.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4EEC9770299555BF00306D3A /* WhoWantsToBeAMillionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWantsToBeAMillionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEC9773299555BF00306D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EEC9775299555BF00306D3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4EEC9777299555BF00306D3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4EEC977A299555BF00306D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EEC977C299555C100306D3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EEC977F299555C100306D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EEC9781299555C100306D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EEC978C2995569200306D3A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		4EEC978E299556A900306D3A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4EEC97932995579100306D3A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		4EEC97962995589900306D3A /* player-wins-a-million.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "player-wins-a-million.mp3"; sourceTree = "<group>"; };
+		4EEC97972995589900306D3A /* otvet-prinyat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "otvet-prinyat.mp3"; sourceTree = "<group>"; };
+		4EEC97982995589900306D3A /* timer-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "timer-sound.mp3"; sourceTree = "<group>"; };
+		4EEC97992995589900306D3A /* correct-answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "correct-answer.mp3"; sourceTree = "<group>"; };
+		4EEC979A2995589900306D3A /* wrong-answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "wrong-answer.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +70,78 @@
 		4EEC9772299555BF00306D3A /* WhoWantsToBeAMillionaire */ = {
 			isa = PBXGroup;
 			children = (
+				4EEC9787299555C900306D3A /* App */,
+				4EEC9788299555DB00306D3A /* Resources */,
+				4EEC97892995564B00306D3A /* Models */,
+				4EEC978A2995565B00306D3A /* Views */,
+				4EEC978B2995566700306D3A /* Controllers */,
+			);
+			path = WhoWantsToBeAMillionaire;
+			sourceTree = "<group>";
+		};
+		4EEC9787299555C900306D3A /* App */ = {
+			isa = PBXGroup;
+			children = (
 				4EEC9773299555BF00306D3A /* AppDelegate.swift */,
 				4EEC9775299555BF00306D3A /* SceneDelegate.swift */,
-				4EEC9777299555BF00306D3A /* ViewController.swift */,
-				4EEC9779299555BF00306D3A /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4EEC9788299555DB00306D3A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4EEC97952995587C00306D3A /* Sounds */,
 				4EEC977C299555C100306D3A /* Assets.xcassets */,
 				4EEC977E299555C100306D3A /* LaunchScreen.storyboard */,
 				4EEC9781299555C100306D3A /* Info.plist */,
 			);
-			path = WhoWantsToBeAMillionaire;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4EEC97892995564B00306D3A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4EEC978C2995569200306D3A /* Question.swift */,
+				4EEC978E299556A900306D3A /* Game.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4EEC978A2995565B00306D3A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4EEC9779299555BF00306D3A /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4EEC978B2995566700306D3A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4EEC9790299556F500306D3A /* StartVC */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4EEC9790299556F500306D3A /* StartVC */ = {
+			isa = PBXGroup;
+			children = (
+				4EEC97932995579100306D3A /* StartViewController.swift */,
+			);
+			path = StartVC;
+			sourceTree = "<group>";
+		};
+		4EEC97952995587C00306D3A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				4EEC97992995589900306D3A /* correct-answer.mp3 */,
+				4EEC97972995589900306D3A /* otvet-prinyat.mp3 */,
+				4EEC97962995589900306D3A /* player-wins-a-million.mp3 */,
+				4EEC97982995589900306D3A /* timer-sound.mp3 */,
+				4EEC979A2995589900306D3A /* wrong-answer.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +202,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EEC979F2995589900306D3A /* wrong-answer.mp3 in Resources */,
+				4EEC979D2995589900306D3A /* timer-sound.mp3 in Resources */,
+				4EEC979E2995589900306D3A /* correct-answer.mp3 in Resources */,
 				4EEC9780299555C100306D3A /* LaunchScreen.storyboard in Resources */,
+				4EEC979B2995589900306D3A /* player-wins-a-million.mp3 in Resources */,
+				4EEC979C2995589900306D3A /* otvet-prinyat.mp3 in Resources */,
 				4EEC977D299555C100306D3A /* Assets.xcassets in Resources */,
 				4EEC977B299555BF00306D3A /* Main.storyboard in Resources */,
 			);
@@ -138,7 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EEC9778299555BF00306D3A /* ViewController.swift in Sources */,
+				4EEC97942995579100306D3A /* StartViewController.swift in Sources */,
+				4EEC978F299556A900306D3A /* Game.swift in Sources */,
+				4EEC978D2995569200306D3A /* Question.swift in Sources */,
 				4EEC9774299555BF00306D3A /* AppDelegate.swift in Sources */,
 				4EEC9776299555BF00306D3A /* SceneDelegate.swift in Sources */,
 			);
@@ -288,7 +372,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WhoWantsToBeAMillionaire/Info.plist;
+				INFOPLIST_FILE = WhoWantsToBeAMillionaire/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -315,7 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WhoWantsToBeAMillionaire/Info.plist;
+				INFOPLIST_FILE = WhoWantsToBeAMillionaire/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

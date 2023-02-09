@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cZY-20-VUZ">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="FWM-Qs-kmG">
+            <objects>
+                <viewController id="cZY-20-VUZ" customClass="StartViewController" customModule="WhoWantsToBeAMillionaire" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vyU-4c-W5t">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="guM-Xf-VYB">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k1F-kt-tzO">
+                                <rect key="frame" x="128" y="404" width="137" height="20.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amY-zG-xn8">
+                                <rect key="frame" x="51.666666666666657" y="563.66666666666663" width="290" height="85.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="START GAME">
+                                    <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="42"/>
+                                    <attributedString key="attributedSubtitle"/>
+                                    <color key="baseForegroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="cZY-20-VUZ" eventType="touchUpInside" id="taG-e0-FAJ"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Millionaire-logo" translatesAutoresizingMaskIntoConstraints="NO" id="52I-Wl-7sE">
+                                <rect key="frame" x="71.666666666666686" y="139" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="gER-4A-7H4"/>
+                                    <constraint firstAttribute="height" constant="250" id="xq1-Jo-2Rl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who Wants To Be a Millionaire" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itb-s3-gvv">
+                                <rect key="frame" x="70" y="432.33333333333331" width="253" height="81.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="34"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8v-Dz-LT9">
+                                <rect key="frame" x="125" y="684" width="143" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Правила игры" subtitle="">
+                                    <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="16"/>
+                                    <color key="baseForegroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="gameRulesButtonPressed:" destination="cZY-20-VUZ" eventType="touchUpInside" id="Xh4-WD-fqJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="c3c-rT-Nda"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="itb-s3-gvv" firstAttribute="leading" secondItem="c3c-rT-Nda" secondAttribute="leading" constant="70" id="5QW-v4-Fbu"/>
+                            <constraint firstItem="guM-Xf-VYB" firstAttribute="leading" secondItem="c3c-rT-Nda" secondAttribute="leading" id="CR3-lL-mbM"/>
+                            <constraint firstItem="amY-zG-xn8" firstAttribute="centerX" secondItem="vyU-4c-W5t" secondAttribute="centerX" id="FYA-x1-44p"/>
+                            <constraint firstItem="52I-Wl-7sE" firstAttribute="centerX" secondItem="vyU-4c-W5t" secondAttribute="centerX" id="HUP-VB-mIJ"/>
+                            <constraint firstItem="52I-Wl-7sE" firstAttribute="centerY" secondItem="vyU-4c-W5t" secondAttribute="centerY" constant="-162" id="I7g-Xq-LL4"/>
+                            <constraint firstItem="guM-Xf-VYB" firstAttribute="top" secondItem="vyU-4c-W5t" secondAttribute="top" id="Rsb-kF-dmz"/>
+                            <constraint firstItem="k1F-kt-tzO" firstAttribute="centerX" secondItem="vyU-4c-W5t" secondAttribute="centerX" id="S0e-8L-jDj"/>
+                            <constraint firstItem="c3c-rT-Nda" firstAttribute="trailing" secondItem="itb-s3-gvv" secondAttribute="trailing" constant="70" id="TQp-Dw-JP0"/>
+                            <constraint firstItem="f8v-Dz-LT9" firstAttribute="top" secondItem="amY-zG-xn8" secondAttribute="bottom" constant="35" id="VP3-1Q-RGe"/>
+                            <constraint firstItem="c3c-rT-Nda" firstAttribute="bottom" secondItem="f8v-Dz-LT9" secondAttribute="bottom" constant="100" id="c0q-cV-ra1"/>
+                            <constraint firstItem="guM-Xf-VYB" firstAttribute="trailing" secondItem="c3c-rT-Nda" secondAttribute="trailing" id="gKf-M0-zkU"/>
+                            <constraint firstItem="f8v-Dz-LT9" firstAttribute="centerX" secondItem="vyU-4c-W5t" secondAttribute="centerX" id="hJR-7H-UHC"/>
+                            <constraint firstItem="k1F-kt-tzO" firstAttribute="top" secondItem="52I-Wl-7sE" secondAttribute="bottom" constant="15" id="rQ5-BK-825"/>
+                            <constraint firstAttribute="bottom" secondItem="guM-Xf-VYB" secondAttribute="bottom" id="s2z-IU-dNf"/>
+                            <constraint firstItem="amY-zG-xn8" firstAttribute="top" secondItem="itb-s3-gvv" secondAttribute="bottom" constant="50" id="sGg-5p-hqh"/>
+                            <constraint firstItem="itb-s3-gvv" firstAttribute="top" secondItem="k1F-kt-tzO" secondAttribute="bottom" constant="7.6699999999999999" id="zw6-Al-JXM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08V-si-6kM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.97196261682242" y="-35.637149028077758"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Background1" width="310.33334350585938" height="552"/>
+        <image name="Millionaire-logo" width="168.66667175292969" height="168.66667175292969"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
