@@ -20,6 +20,8 @@
 		4EEC979D2995589900306D3A /* timer-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97982995589900306D3A /* timer-sound.mp3 */; };
 		4EEC979E2995589900306D3A /* correct-answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97992995589900306D3A /* correct-answer.mp3 */; };
 		4EEC979F2995589900306D3A /* wrong-answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC979A2995589900306D3A /* wrong-answer.mp3 */; };
+		CEB6B9772995664E0052A012 /* QuestionsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B9762995664E0052A012 /* QuestionsBrain.swift */; };
+		CEB6B979299566680052A012 /* QuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B978299566680052A012 /* QuestionList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		4EEC97982995589900306D3A /* timer-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "timer-sound.mp3"; sourceTree = "<group>"; };
 		4EEC97992995589900306D3A /* correct-answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "correct-answer.mp3"; sourceTree = "<group>"; };
 		4EEC979A2995589900306D3A /* wrong-answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "wrong-answer.mp3"; sourceTree = "<group>"; };
+		CEB6B9762995664E0052A012 /* QuestionsBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsBrain.swift; sourceTree = "<group>"; };
+		CEB6B978299566680052A012 /* QuestionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 			children = (
 				4EEC978C2995569200306D3A /* Question.swift */,
 				4EEC978E299556A900306D3A /* Game.swift */,
+				CEB6B9762995664E0052A012 /* QuestionsBrain.swift */,
+				CEB6B978299566680052A012 /* QuestionList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -221,7 +227,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EEC97942995579100306D3A /* StartViewController.swift in Sources */,
+				CEB6B979299566680052A012 /* QuestionList.swift in Sources */,
 				4EEC978F299556A900306D3A /* Game.swift in Sources */,
+				CEB6B9772995664E0052A012 /* QuestionsBrain.swift in Sources */,
 				4EEC978D2995569200306D3A /* Question.swift in Sources */,
 				4EEC9774299555BF00306D3A /* AppDelegate.swift in Sources */,
 				4EEC9776299555BF00306D3A /* SceneDelegate.swift in Sources */,
