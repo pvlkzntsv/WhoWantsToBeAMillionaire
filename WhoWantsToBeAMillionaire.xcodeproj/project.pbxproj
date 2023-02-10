@@ -30,10 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
-		4D70E16029963005006DE09C /* SumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumListViewController.swift; sourceTree = "<group>"; };
-		4D70E16129963005006DE09C /* SumListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SumListViewController.xib; sourceTree = "<group>"; };
-		4DAB47EB29962DD600D4CA73 /* SoundsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundsManager.swift; path = ../../../Millionaire/Millionaire/Models/SoundsManager.swift; sourceTree = "<group>"; };
+		4D70E16029963005006DE09C /* SumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SumListViewController.swift; path = ../../../../WhoWantsToBeAMillionaire/WhoWantsToBeAMillionaire/Controllers/SumListVC/SumListViewController.swift; sourceTree = "<group>"; };
+		4D70E16129963005006DE09C /* SumListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SumListViewController.xib; path = ../../../../WhoWantsToBeAMillionaire/WhoWantsToBeAMillionaire/Controllers/SumListVC/SumListViewController.xib; sourceTree = "<group>"; };
+		4DAB47EB29962DD600D4CA73 /* SoundsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsManager.swift; sourceTree = "<group>"; };
 		4EEC9770299555BF00306D3A /* WhoWantsToBeAMillionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWantsToBeAMillionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEC9773299555BF00306D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EEC9775299555BF00306D3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,8 +71,7 @@
 				4D70E16029963005006DE09C /* SumListViewController.swift */,
 				4D70E16129963005006DE09C /* SumListViewController.xib */,
 			);
-			name = SumListVC;
-			path = ../../../Millionaire/Millionaire/Controllers/SumListVC;
+			path = SumListVC;
 			sourceTree = "<group>";
 		};
 		4EEC9767299555BF00306D3A = {
