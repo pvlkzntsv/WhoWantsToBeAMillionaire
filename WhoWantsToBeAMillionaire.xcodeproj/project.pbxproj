@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D70E16229963005006DE09C /* SumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D70E16029963005006DE09C /* SumListViewController.swift */; };
+		4D70E16329963005006DE09C /* SumListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D70E16129963005006DE09C /* SumListViewController.xib */; };
 		4DAB47EC29962DD600D4CA73 /* SoundsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAB47EB29962DD600D4CA73 /* SoundsManager.swift */; };
 		4EEC9774299555BF00306D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC9773299555BF00306D3A /* AppDelegate.swift */; };
 		4EEC9776299555BF00306D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC9775299555BF00306D3A /* SceneDelegate.swift */; };
@@ -28,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		4D70E16029963005006DE09C /* SumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumListViewController.swift; sourceTree = "<group>"; };
+		4D70E16129963005006DE09C /* SumListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SumListViewController.xib; sourceTree = "<group>"; };
 		4DAB47EB29962DD600D4CA73 /* SoundsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundsManager.swift; path = ../../../Millionaire/Millionaire/Models/SoundsManager.swift; sourceTree = "<group>"; };
 		4EEC9770299555BF00306D3A /* WhoWantsToBeAMillionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWantsToBeAMillionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEC9773299555BF00306D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +66,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D70E15F29963005006DE09C /* SumListVC */ = {
+			isa = PBXGroup;
+			children = (
+				4D70E16029963005006DE09C /* SumListViewController.swift */,
+				4D70E16129963005006DE09C /* SumListViewController.xib */,
+			);
+			name = SumListVC;
+			path = ../../../Millionaire/Millionaire/Controllers/SumListVC;
+			sourceTree = "<group>";
+		};
 		4EEC9767299555BF00306D3A = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +147,7 @@
 		4EEC978B2995566700306D3A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4D70E15F29963005006DE09C /* SumListVC */,
 				CEB6B985299572CC0052A012 /* LosGameVC */,
 				4EEC9790299556F500306D3A /* StartVC */,
 			);
@@ -229,6 +245,7 @@
 				4EEC979D2995589900306D3A /* timer-sound.mp3 in Resources */,
 				4EEC979E2995589900306D3A /* correct-answer.mp3 in Resources */,
 				4EEC9780299555C100306D3A /* LaunchScreen.storyboard in Resources */,
+				4D70E16329963005006DE09C /* SumListViewController.xib in Resources */,
 				4EEC979B2995589900306D3A /* player-wins-a-million.mp3 in Resources */,
 				4EEC979C2995589900306D3A /* otvet-prinyat.mp3 in Resources */,
 				4EEC977D299555C100306D3A /* Assets.xcassets in Resources */,
@@ -251,6 +268,7 @@
 				4EEC978F299556A900306D3A /* Game.swift in Sources */,
 				CEB6B9772995664E0052A012 /* QuestionsBrain.swift in Sources */,
 				4EEC978D2995569200306D3A /* Question.swift in Sources */,
+				4D70E16229963005006DE09C /* SumListViewController.swift in Sources */,
 				4EEC9774299555BF00306D3A /* AppDelegate.swift in Sources */,
 				4EEC9776299555BF00306D3A /* SceneDelegate.swift in Sources */,
 			);
