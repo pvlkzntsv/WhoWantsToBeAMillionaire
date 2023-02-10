@@ -12,10 +12,8 @@ struct QuestionBrain {
         }
     }
     
-    func currentQuestion () -> Question {
-        return question[questionNumber]
-    }
- 
+    lazy var currentQuestion = question[questionNumber]
+    
 // Проверка ответа
     func checkAnswer (userAnswer:String) -> Bool {
         let correctAnswer = question[questionNumber].correctAnswer
@@ -26,5 +24,19 @@ struct QuestionBrain {
         }
     }
     
+    // Функция получение вопроса
+    mutating func getQuestion() -> String {
+        return  currentQuestion.ask
+    }
+    
+    // Функция получения массива ответов (для кнопок)
+    mutating func getArrAnswers() -> [String] {
+        return currentQuestion.answers
+    }
+    
+    // Функция получает правильный ответ
+    mutating func getCorrectAnswer(questionNumber: Int) -> String {
+        return currentQuestion.correctAnswer
+    }
 
 }

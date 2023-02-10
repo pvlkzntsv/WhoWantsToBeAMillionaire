@@ -15,5 +15,8 @@ class LossGameViewController: UIViewController {
     }
 
     @IBAction func playAgainButtonPress(_ sender: UIButton) {
+        let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
+        startViewController.modalPresentationStyle = .overFullScreen
+        self.present(startViewController, animated: false, completion: nil)
     }
 }
