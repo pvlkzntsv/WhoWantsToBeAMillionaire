@@ -20,6 +20,9 @@
 		4EEC979D2995589900306D3A /* timer-sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97982995589900306D3A /* timer-sound.mp3 */; };
 		4EEC979E2995589900306D3A /* correct-answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97992995589900306D3A /* correct-answer.mp3 */; };
 		4EEC979F2995589900306D3A /* wrong-answer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC979A2995589900306D3A /* wrong-answer.mp3 */; };
+		6FE5A98028AF692D00B3F100 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5A97F28AF692D00B3F100 /* QuestionViewController.swift */; };
+		6FE5A98228AF694D00B3F100 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FE5A98128AF694D00B3F100 /* QuestionViewController.xib */; };
+		6FE5A98428AF6C7A00B3F100 /* GameD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE5A98328AF6C7A00B3F100 /* GameD.swift */; };
 		CEB6B9772995664E0052A012 /* QuestionsBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B9762995664E0052A012 /* QuestionsBrain.swift */; };
 		CEB6B979299566680052A012 /* QuestionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6B978299566680052A012 /* QuestionList.swift */; };
 		CEB6B987299572EA0052A012 /* LossGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB6B986299572EA0052A012 /* LossGameViewController.xib */; };
@@ -42,6 +45,9 @@
 		4EEC97982995589900306D3A /* timer-sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "timer-sound.mp3"; sourceTree = "<group>"; };
 		4EEC97992995589900306D3A /* correct-answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "correct-answer.mp3"; sourceTree = "<group>"; };
 		4EEC979A2995589900306D3A /* wrong-answer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "wrong-answer.mp3"; sourceTree = "<group>"; };
+		6FE5A97F28AF692D00B3F100 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		6FE5A98128AF694D00B3F100 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		6FE5A98328AF6C7A00B3F100 /* GameD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameD.swift; sourceTree = "<group>"; };
 		CEB6B9762995664E0052A012 /* QuestionsBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsBrain.swift; sourceTree = "<group>"; };
 		CEB6B978299566680052A012 /* QuestionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionList.swift; sourceTree = "<group>"; };
 		CEB6B986299572EA0052A012 /* LossGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LossGameViewController.xib; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 				4EEC978E299556A900306D3A /* Game.swift */,
 				CEB6B9762995664E0052A012 /* QuestionsBrain.swift */,
 				CEB6B978299566680052A012 /* QuestionList.swift */,
+				6FE5A98328AF6C7A00B3F100 /* GameD.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 		4EEC978A2995565B00306D3A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6FE5A98128AF694D00B3F100 /* QuestionViewController.xib */,
 				4EEC9779299555BF00306D3A /* Main.storyboard */,
 			);
 			path = Views;
@@ -129,6 +137,7 @@
 		4EEC978B2995566700306D3A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6FE5A97F28AF692D00B3F100 /* QuestionViewController.swift */,
 				CEB6B985299572CC0052A012 /* LosGameVC */,
 				4EEC9790299556F500306D3A /* StartVC */,
 			);
@@ -226,6 +235,7 @@
 				4EEC979D2995589900306D3A /* timer-sound.mp3 in Resources */,
 				4EEC979E2995589900306D3A /* correct-answer.mp3 in Resources */,
 				4EEC9780299555C100306D3A /* LaunchScreen.storyboard in Resources */,
+				6FE5A98228AF694D00B3F100 /* QuestionViewController.xib in Resources */,
 				4EEC979B2995589900306D3A /* player-wins-a-million.mp3 in Resources */,
 				4EEC979C2995589900306D3A /* otvet-prinyat.mp3 in Resources */,
 				4EEC977D299555C100306D3A /* Assets.xcassets in Resources */,
@@ -243,12 +253,14 @@
 			files = (
 				4EEC97942995579100306D3A /* StartViewController.swift in Sources */,
 				CEB6B989299572F10052A012 /* LossGameViewController.swift in Sources */,
+				6FE5A98428AF6C7A00B3F100 /* GameD.swift in Sources */,
 				CEB6B979299566680052A012 /* QuestionList.swift in Sources */,
 				4EEC978F299556A900306D3A /* Game.swift in Sources */,
 				CEB6B9772995664E0052A012 /* QuestionsBrain.swift in Sources */,
 				4EEC978D2995569200306D3A /* Question.swift in Sources */,
 				4EEC9774299555BF00306D3A /* AppDelegate.swift in Sources */,
 				4EEC9776299555BF00306D3A /* SceneDelegate.swift in Sources */,
+				6FE5A98028AF692D00B3F100 /* QuestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +414,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -429,6 +442,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
