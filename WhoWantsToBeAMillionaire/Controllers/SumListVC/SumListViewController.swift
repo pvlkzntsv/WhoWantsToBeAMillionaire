@@ -8,22 +8,36 @@
 import UIKit
 
 class SumListViewController: UIViewController {
+    
 
+    @IBOutlet var question: [UIImageView]!
+ 
+    var currentQuestion: Int? //counter for current question from QuestionBrain.swift
+    var trueOrFalseAnswer: Bool? //result of checkAnswer() from QuestionBrain.swift
+    private var timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        guard let currentQuestion = currentQuestion else { return }
+        hightlitedQuestion(currentQuestion)
+        
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func hightlitedQuestion(_ questionNumber: Int) {
+        guard let currentQuestion = currentQuestion else { return }
+        
+        if question[currentQuestion].tag == questionNumber {
+            for _ in 0...2 {
+                if trueOrFalseAnswer == true {
+                    question[currentQuestion].image = UIImage(named: "Rectangle green")
+                } else {
+                    question[currentQuestion].image = UIImage(named: "Rectangle red")
+                }
+                timer = Timer(timeInterval: 0.5, repeats: true, block: { [weak self] i in
+                    self?.question[currentQuestion].image = UIImage(named: "Rectangle violet")
+                })
+            }
+        }
     }
-    */
-
 }
