@@ -71,8 +71,7 @@
 				4D70E16029963005006DE09C /* SumListViewController.swift */,
 				4D70E16129963005006DE09C /* SumListViewController.xib */,
 			);
-			name = SumListVC;
-			path = ../../../Millionaire/Millionaire/Controllers/SumListVC;
+			path = SumListVC;
 			sourceTree = "<group>";
 		};
 		4EEC9767299555BF00306D3A = {
