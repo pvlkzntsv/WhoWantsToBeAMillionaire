@@ -19,7 +19,7 @@ class SumListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {
+        timer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) {
             timer in
             self.dismiss(animated: true)
             
