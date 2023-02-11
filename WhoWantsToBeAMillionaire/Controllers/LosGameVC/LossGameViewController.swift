@@ -8,9 +8,12 @@
 import UIKit
 
 class LossGameViewController: UIViewController {
-
+    @IBOutlet weak var labelPlayersSumm: UILabel!
+    var playersSumm = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        labelPlayersSumm.text = "Ваш выигрыш: " + String(playersSumm) + "рублей."
 
     }
 

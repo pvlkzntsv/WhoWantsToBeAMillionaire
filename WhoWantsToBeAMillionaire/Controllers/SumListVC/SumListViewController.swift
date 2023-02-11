@@ -19,8 +19,14 @@ class SumListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let currentQuestion = currentQuestion else { return }
-        hightlitedQuestion(currentQuestion)
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {
+            timer in
+            self.dismiss(animated: true)
+            
+        }
+        
+        //guard let currentQuestion = currentQuestion else { return }
+        //hightlitedQuestion(currentQuestion)
         
     }
     
@@ -36,6 +42,8 @@ class SumListViewController: UIViewController {
                 }
                 timer = Timer(timeInterval: 0.5, repeats: true, block: { [weak self] i in
                     self?.question[currentQuestion].image = UIImage(named: "Rectangle violet")
+                    self?.dismiss(animated: true)
+                    
                 })
             }
         }
