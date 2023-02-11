@@ -2,6 +2,8 @@ import Foundation
 
 struct QuestionBrain {
     let question = QuestionsList().questionList
+    var playersSumm = 0 //деньги игрока
+    lazy var currentQuestion = question[questionNumber]
     
     var questionNumber = 0
     mutating func nextQuestion()  {
@@ -10,9 +12,10 @@ struct QuestionBrain {
         }else {
             questionNumber = 0
         }
+        currentQuestion = question[questionNumber]
     }
     
-    lazy var currentQuestion = question[questionNumber]
+    
     
 // Проверка ответа
     func checkAnswer (userAnswer:String) -> Bool {
@@ -37,6 +40,10 @@ struct QuestionBrain {
     // Функция получает правильный ответ
     mutating func getCorrectAnswer(questionNumber: Int) -> String {
         return currentQuestion.correctAnswer
+    }
+    
+    func getQuestionNumber() -> Int {
+        return questionNumber
     }
 
 }
