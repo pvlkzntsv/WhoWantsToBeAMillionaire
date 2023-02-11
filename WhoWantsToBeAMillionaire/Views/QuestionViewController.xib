@@ -23,6 +23,10 @@
                 <outlet property="labelSumm" destination="ht3-di-rVy" id="o2s-im-CPv"/>
                 <outlet property="labelTimer" destination="XA6-XK-htz" id="uQJ-4j-Bk8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewAnswerA" destination="smK-65-1F0" id="Igt-wD-cqZ"/>
+                <outlet property="viewAnswerB" destination="lhs-R7-NGy" id="WMJ-86-5tA"/>
+                <outlet property="viewAnswerC" destination="HBf-EG-uzi" id="rXP-7Z-4fo"/>
+                <outlet property="viewAnswerD" destination="gfX-pY-KN6" id="c2e-t9-Adg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

@@ -23,6 +23,14 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var buttonAnswer2: UIButton!
     @IBOutlet weak var buttonAnswer3: UIButton!
     @IBOutlet weak var buttonAnswer4: UIButton!
+    
+    @IBOutlet weak var viewAnswerA: UIView!
+    @IBOutlet weak var viewAnswerB: UIView!
+    @IBOutlet weak var viewAnswerC: UIView!
+    @IBOutlet weak var viewAnswerD: UIView!
+    
+    
+    
     var arrAnswerButton = [UIButton]() // массив кнопок с ответами
     
     
@@ -61,7 +69,11 @@ class QuestionViewController: UIViewController {
     }
 
     @IBAction func giveMyMoney(_ sender: UIButton) {
-        // MARK: TODO(dmitrii_er) - сделать переход на экран окончания игры
+        //переход на экран показа результатом игры
+        let lossGaveViewController = LossGameViewController()
+        lossGaveViewController.playersSumm = self.questionBrain.playersSumm
+        lossGaveViewController.modalPresentationStyle = .fullScreen
+        self.present(lossGaveViewController, animated: true)
         
     }
     
@@ -82,7 +94,6 @@ class QuestionViewController: UIViewController {
             timer in
            
             // MARK: TODO(dmitrii_er) - окончание проигрывания музыки1
-            // MARK: TODO(dmitrii_er) - получение реального ответа
             let correctAnswer = self.questionBrain.getCorrectAnswer(questionNumber: self.questionNumber)
             //подсветка кнопки с правильным ответом
             for button in self.arrAnswerButton {
@@ -97,7 +108,7 @@ class QuestionViewController: UIViewController {
             
             // определение правильный ответ или нет
             if sender.title(for: .normal) == correctAnswer {
-                // верный ответ переход на экран со свписком вопросов
+                // верный ответ переход на экран со списком вопросов
                 let sumListViewController = SumListViewController()
                 sumListViewController.modalPresentationStyle = .fullScreen
                 self.present(sumListViewController, animated: true)
@@ -106,11 +117,9 @@ class QuestionViewController: UIViewController {
                 self.questionBrain.nextQuestion()
             }
             else {
-                // неверный ответ - переход на укран показа результатом игры
-                let lossGaveViewController = LossGameViewController()
-                lossGaveViewController.playersSumm = self.questionBrain.playersSumm
-                lossGaveViewController.modalPresentationStyle = .fullScreen
-                self.present(lossGaveViewController, animated: true)
+                // неверный ответ
+                self.wrongAnswerOrTimeOff()
+                
             }
         }
         
@@ -120,28 +129,53 @@ class QuestionViewController: UIViewController {
     
     @IBAction func adviceButtonPressed(_ sender: UIButton) {
         sender.isEnabled = false
+        var twoHiddenButton = 0 //считаем спрятанные кнопки
         if sender.tag == 1 { //50:50 нажата
             button50persent.setBackgroundImage( UIImage(named: "Advice-50-spent"), for: .normal)
-            
-            
+            for button in arrAnswerButton {
+                if button.title(for: .normal) == questionBrain.getCorrectAnswer(questionNumber: questionNumber) {
+                    //не прячу кнопку с правильным ответом
+                }
+                else {
+                    button.superview!.alpha = 0
+                    twoHiddenButton += 1
+                    if twoHiddenButton >= 2 { //хватит, если спрятали уже две кнопки
+                        return
+                    }
+                }
+            }
         } else if sender.tag == 2 { //помощь зала
             buttonHall.setBackgroundImage( UIImage(named: "Advice-hall-spent"), for: .normal)
-            let advice = getAdvice(typeOfAdvice: "Hall")
-            showAdvice(advice: advice)
-            
+            showAdvice(maxPercent: 50)
         } else if sender.tag == 3 { // звонок другу
             buttonCall.setBackgroundImage( UIImage(named: "Advice-call-spent"), for: .normal)
-            let advice = getAdvice(typeOfAdvice: "Call")
-            showAdvice(advice: advice)
-            
+            showAdvice(maxPercent: 80)
         }
         else {
             print("Error: unknown tag for advice buttons")
         }
     }
     
-    func showAdvice(advice:String) {
-        let alert = UIAlertController(title: "Время идет, поторопись!", message: "Правильный ответ: \(advice)", preferredStyle: .alert)
+    func showAdvice(maxPercent:UInt32) {
+        var message = "нет подсказок"
+        var rndPercent = (arc4random() % 1000) / 10
+        let correctAnswer = questionBrain.getCorrectAnswer(questionNumber: questionBrain.questionNumber)
+        
+        switch(rndPercent) {
+        case 0..<maxPercent:
+            message = correctAnswer
+            print("hi percent = \(maxPercent)")
+        case maxPercent...100:
+            // MARK: TODO - не совсем верно считает вероятность при уже убранных кнопках(доделать)
+            var wrongAnswers = questionBrain.getArrAnswers().filter {
+                $0 != correctAnswer
+            }
+            message = wrongAnswers.randomElement()!
+            print("low %")
+        default:
+            print("noprecent")
+        }
+        let alert = UIAlertController(title: "Время идет, поторопись!", message: "Правильный ответ: \(message)", preferredStyle: .alert)
         let alertButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(alertButton)
         self.present(alert, animated: true, completion: nil)
@@ -171,6 +205,11 @@ class QuestionViewController: UIViewController {
         }
         //возврат к начальному виду экрана(при смене вопроса)
         view.isUserInteractionEnabled = true // разрешаем взаимодействие с экраном
+        viewAnswerA.alpha = 1
+        viewAnswerB.alpha = 1
+        viewAnswerC.alpha = 1
+        viewAnswerD.alpha = 1
+        
         // MARK: TODO - старт 30 секундного таймера, обновление LabelTimerToEnd, проигрывание музыки, после 30 сек - экран окончания игры
         timerWaitAnswer.invalidate()
         seconds = 30
@@ -182,35 +221,32 @@ class QuestionViewController: UIViewController {
             self.labelTimer.text = String(self.seconds) + "сек"
             if self.seconds <= 0 {
                 self.timerWaitAnswer.invalidate()
-                    //MARK: TODO(dmitrii_er) - вызов экрана окончания игры
+                self.wrongAnswerOrTimeOff()
                 
             }
         }
         
     }
-
     
-    
-    
-    
-    
-    
-    
-    
-    // функция получает совет
-    //typeOfAdvice = "Call" or "Hall"
-    func getAdvice(typeOfAdvice: String) -> String {
-        //MARK: TODO(dmitrii_er) - сделать реальное возвращение советов
-        return "здесь будет совет"
+    // Игрок ответил неверно или вышло время-переход на экран окончания игры
+    func wrongAnswerOrTimeOff() {
+        //очищаем выигрыш до минимальной несгорающей суммы
+        if ((questionBrain.playersSumm>=1000)&&(questionBrain.playersSumm<32000)) {
+            questionBrain.playersSumm = 1000
+        }
+        else if (questionBrain.playersSumm>=32000) {
+            questionBrain.playersSumm = 32000
+        }
+        else {
+            questionBrain.playersSumm = 0
+        }
+        //переход на экран показа результатом игры
+        let lossGaveViewController = LossGameViewController()
+        lossGaveViewController.playersSumm = questionBrain.playersSumm
+        lossGaveViewController.modalPresentationStyle = .fullScreen
+        self.present(lossGaveViewController, animated: true)
     }
     
-    // MARK: TODO function answerButtonPress
-    
-    
-    //MARK: TODO function helpForAnswerButtomPressed
-    
-    //MARK: TODO function geveMyMoney
-
     
     }
     
