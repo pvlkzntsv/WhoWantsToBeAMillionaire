@@ -2,6 +2,7 @@ import Foundation
 
 struct QuestionBrain {
     let question = QuestionsList().questionList
+    let questionSum = QuestionsList().questionsPrice
     var playersSumm = 0 //деньги игрока
     lazy var currentQuestion = question[questionNumber]
     
@@ -45,5 +46,10 @@ struct QuestionBrain {
     func getQuestionNumber() -> Int {
         return questionNumber
     }
+    
+    func playerSum() -> Int {
+        return questionSum[questionNumber]
+    }
+        
 
 }

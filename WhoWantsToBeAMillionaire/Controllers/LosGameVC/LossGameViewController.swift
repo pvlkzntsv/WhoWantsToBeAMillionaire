@@ -6,14 +6,22 @@
 //
 
 import UIKit
-
+var questionVC = QuestionViewController()
 class LossGameViewController: UIViewController {
     @IBOutlet weak var labelPlayersSumm: UILabel!
-    var playersSumm = 0
+    @IBOutlet var taskLabel: UILabel!
+    var playersSumm = questionVC.playerSum
     
     override func viewDidLoad() {
+        taskLabel.text = "А ты оказывается умён"
         super.viewDidLoad()
-        labelPlayersSumm.text = "Ваш выигрыш: " + String(playersSumm) + "рублей."
+        switch playersSumm {
+        case _ where playersSumm == 1000000 : labelPlayersSumm.text = "Ваш выигрыш: 1.000.000 руб."
+        case _ where playersSumm >= 32000 : labelPlayersSumm.text = "Ваш выигрыш: 32.000 руб."
+        case _ where playersSumm >= 1000  : labelPlayersSumm.text = "Ваш выигрыш: 1.000 руб."
+        default : (labelPlayersSumm.text = "Вы проиграли.", taskLabel.text = "Иди учи и возвращайся")
+        }
+        
 
     }
 

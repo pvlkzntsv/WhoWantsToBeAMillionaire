@@ -40,6 +40,7 @@ class QuestionViewController: UIViewController {
     var seconds = 0
     var questionBrain = QuestionBrain()
     var questionNumber:Int = 1
+    var playerSum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +116,7 @@ class QuestionViewController: UIViewController {
                 //зачисляем игроку сумму и только потом меняем номер вопроса
                 self.questionBrain.playersSumm += arrQuestionAndSumm[self.questionNumber+1]
                 self.questionBrain.nextQuestion()
+                self.playerSum = self.questionBrain.playerSum()
             }
             else {
                 // неверный ответ

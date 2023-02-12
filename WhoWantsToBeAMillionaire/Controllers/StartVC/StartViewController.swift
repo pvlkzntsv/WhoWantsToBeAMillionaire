@@ -9,6 +9,7 @@ import UIKit
 
 class StartViewController: UIViewController {
     var quest = QuestionViewController()
+    let rules = QuestionsList().gameRules
     
     
     override func viewDidLoad() {
@@ -23,5 +24,8 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func gameRulesButtonPressed(_ sender: UIButton) {
+        let ac = UIAlertController(title: "Правила игры", message: rules, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Вернуться", style: .cancel, handler: .none))
+        present(ac, animated: true)
     }
 }
