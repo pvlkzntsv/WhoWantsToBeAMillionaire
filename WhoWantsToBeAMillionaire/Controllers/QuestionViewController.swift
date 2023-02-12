@@ -107,6 +107,7 @@ class QuestionViewController: UIViewController {
             // определение правильный ответ или нет
             if sender.title(for: .normal) == correctAnswer {
                 // верный ответ переход на экран со списком вопросов
+
                 self.soundManager.playSound(.correctAnswer)
                 //задержка чтобы игрок увидел какй ответ правильный+проигрывание музыки
                 self.timerPlayerSeeAnswer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) {_ in
