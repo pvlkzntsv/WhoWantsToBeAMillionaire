@@ -15,7 +15,8 @@ class LossGameViewController: UIViewController {
     
     override func viewDidLoad() {
         switch playersSumm {
-        case takeMoney: labelPlayersSumm.text = "Ваш выйгрыш: \(takeMoney)руб"
+        case _ where takeMoney == playersSumm && playersSumm != 0 :
+            labelPlayersSumm.text = "Ваш выйгрыш: \(takeMoney)руб"
             taskLabel.text = "Решил не рисковать почем зря?"
         case _ where playersSumm == 1000000 : labelPlayersSumm.text = "Ваш выигрыш: 1 000 000 руб."
             taskLabel.text = "Миллионер!!!"
