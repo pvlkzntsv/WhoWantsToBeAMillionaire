@@ -16,7 +16,6 @@
 		4EEC977D299555C100306D3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC977C299555C100306D3A /* Assets.xcassets */; };
 		4EEC9780299555C100306D3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC977E299555C100306D3A /* LaunchScreen.storyboard */; };
 		4EEC978D2995569200306D3A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC978C2995569200306D3A /* Question.swift */; };
-		4EEC978F299556A900306D3A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC978E299556A900306D3A /* Game.swift */; };
 		4EEC97942995579100306D3A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC97932995579100306D3A /* StartViewController.swift */; };
 		4EEC979B2995589900306D3A /* player-wins-a-million.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97962995589900306D3A /* player-wins-a-million.mp3 */; };
 		4EEC979C2995589900306D3A /* otvet-prinyat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EEC97972995589900306D3A /* otvet-prinyat.mp3 */; };
@@ -33,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		4D70E16029963005006DE09C /* SumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SumListViewController.swift; path = ../../../../WhoWantsToBeAMillionaire/WhoWantsToBeAMillionaire/Controllers/SumListVC/SumListViewController.swift; sourceTree = "<group>"; };
-		4D70E16129963005006DE09C /* SumListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SumListViewController.xib; path = ../../../../WhoWantsToBeAMillionaire/WhoWantsToBeAMillionaire/Controllers/SumListVC/SumListViewController.xib; sourceTree = "<group>"; };
+		4D70E16129963005006DE09C /* SumListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SumListViewController.xib; sourceTree = "<group>"; };
 		4DAB47EB29962DD600D4CA73 /* SoundsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsManager.swift; sourceTree = "<group>"; };
 		4EEC9770299555BF00306D3A /* WhoWantsToBeAMillionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhoWantsToBeAMillionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEC9773299555BF00306D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +42,6 @@
 		4EEC977F299555C100306D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EEC9781299555C100306D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EEC978C2995569200306D3A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		4EEC978E299556A900306D3A /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4EEC97932995579100306D3A /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		4EEC97962995589900306D3A /* player-wins-a-million.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "player-wins-a-million.mp3"; sourceTree = "<group>"; };
 		4EEC97972995589900306D3A /* otvet-prinyat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "otvet-prinyat.mp3"; sourceTree = "<group>"; };
@@ -73,9 +71,16 @@
 			isa = PBXGroup;
 			children = (
 				4D70E16029963005006DE09C /* SumListViewController.swift */,
-				4D70E16129963005006DE09C /* SumListViewController.xib */,
 			);
 			path = SumListVC;
+			sourceTree = "<group>";
+		};
+		4E12348D2999086900929BE5 /* QuestionVC */ = {
+			isa = PBXGroup;
+			children = (
+				6FE5A97F28AF692D00B3F100 /* QuestionViewController.swift */,
+			);
+			path = QuestionVC;
 			sourceTree = "<group>";
 		};
 		4EEC9767299555BF00306D3A = {
@@ -130,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				4EEC978C2995569200306D3A /* Question.swift */,
-				4EEC978E299556A900306D3A /* Game.swift */,
 				CEB6B9762995664E0052A012 /* QuestionsBrain.swift */,
 				CEB6B978299566680052A012 /* QuestionList.swift */,
 				4DAB47EB29962DD600D4CA73 /* SoundsManager.swift */,
@@ -143,6 +147,8 @@
 			children = (
 				6FE5A98128AF694D00B3F100 /* QuestionViewController.xib */,
 				4EEC9779299555BF00306D3A /* Main.storyboard */,
+				4D70E16129963005006DE09C /* SumListViewController.xib */,
+				CEB6B986299572EA0052A012 /* LossGameViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,7 +156,7 @@
 		4EEC978B2995566700306D3A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6FE5A97F28AF692D00B3F100 /* QuestionViewController.swift */,
+				4E12348D2999086900929BE5 /* QuestionVC */,
 				4D70E15F29963005006DE09C /* SumListVC */,
 				CEB6B985299572CC0052A012 /* LosGameVC */,
 				4EEC9790299556F500306D3A /* StartVC */,
@@ -182,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				CEB6B988299572F10052A012 /* LossGameViewController.swift */,
-				CEB6B986299572EA0052A012 /* LossGameViewController.xib */,
 			);
 			path = LosGameVC;
 			sourceTree = "<group>";
@@ -270,7 +275,6 @@
 				4DAB47EC29962DD600D4CA73 /* SoundsManager.swift in Sources */,
 				CEB6B989299572F10052A012 /* LossGameViewController.swift in Sources */,
 				CEB6B979299566680052A012 /* QuestionList.swift in Sources */,
-				4EEC978F299556A900306D3A /* Game.swift in Sources */,
 				CEB6B9772995664E0052A012 /* QuestionsBrain.swift in Sources */,
 				4EEC978D2995569200306D3A /* Question.swift in Sources */,
 				4D70E16229963005006DE09C /* SumListViewController.swift in Sources */,

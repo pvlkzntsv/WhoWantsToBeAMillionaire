@@ -9,7 +9,7 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
-//ddd
+
     @IBOutlet weak var button50persent: UIButton!
     @IBOutlet weak var buttonHall: UIButton!
     @IBOutlet weak var buttonCall: UIButton!
@@ -42,12 +42,12 @@ class QuestionViewController: UIViewController {
     var questionBrain = QuestionBrain()
     var questionNumber:Int = 1
     var playerSum = 0
+    var takeMoney = 0
     var soundManager = SoundsManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //updateUI()
-        //Настройка рисунков для кнопок "Звонок другу", "50/50", "Помощь зала" **********************************
+        //Настройка рисунков для кнопок "Звонок другу", "50/50", "Помощь зала"
         button50persent.setBackgroundImage( UIImage(named: "Advice-50"), for: .normal)
         button50persent.layoutIfNeeded()
         button50persent.subviews.first?.contentMode = .scaleAspectFit
@@ -61,6 +61,7 @@ class QuestionViewController: UIViewController {
         buttonCall.subviews.first?.contentMode = .scaleAspectFit
         //создаем массив кнопок
         arrAnswerButton.append(contentsOf: [buttonAnswer1, buttonAnswer2, buttonAnswer3, buttonAnswer4])
+        soundManager.stopPlay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,18 +71,20 @@ class QuestionViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        soundManager.stopPlay()
+//        soundManager.stopPlay()
     }
 
     @IBAction func giveMyMoney(_ sender: UIButton) {
+        takeMoney = playerSum
         //переход на экран показа результатом игры
-        let lossGaveViewController = LossGameViewController()
-        lossGaveViewController.playersSumm = self.questionBrain.playersSumm
-        lossGaveViewController.modalPresentationStyle = .fullScreen
-        self.present(lossGaveViewController, animated: true)
+        let lossGameViewController = LossGameViewController()
+        lossGameViewController.takeMoney = self.takeMoney
+        lossGameViewController.playersSumm = self.questionBrain.playersSumm
+        lossGameViewController.modalPresentationStyle = .fullScreen
+        self.present(lossGameViewController, animated: true)
         
     }
-    
+    // MARK: ANSWERS BUTTONS PRESSED
     @IBAction func buttonsAnswerPressed(_ sender: UIButton) {
         //блокирую все кнопки для нажатий-ждем ответа ведущего
         view.isUserInteractionEnabled = false
@@ -91,9 +94,6 @@ class QuestionViewController: UIViewController {
 
         // стоп таймера ожидания ответа и запуск таймера ожидания правильного ответа
         timerWaitAnswer.invalidate()
-    
-       
-
         timerWaitCorrectAnswer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) {
             timer in
             let correctAnswer = self.questionBrain.getCorrectAnswer(questionNumber: self.questionNumber)
@@ -113,6 +113,7 @@ class QuestionViewController: UIViewController {
                 self.timerPlayerSeeAnswer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) {_ in
                     let sumListViewController = SumListViewController()
                     sumListViewController.modalPresentationStyle = .fullScreen
+                    sumListViewController.currentQuestion = self.questionNumber
                     self.present(sumListViewController, animated: true)
                     //зачисляем игроку сумму и только потом меняем номер вопроса
                     self.questionBrain.playersSumm += arrQuestionAndSumm[self.questionNumber+1]
@@ -122,7 +123,11 @@ class QuestionViewController: UIViewController {
             }
             else {// неверный ответ
                 self.soundManager.playSound(.wrongAnswer)
+                sender.layer.borderWidth = 5
+                sender.layer.borderColor = UIColor.red.cgColor
                 self.timerPlayerSeeAnswer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) {_ in
+                    sender.layer.borderWidth = 5
+                    sender.layer.borderColor = UIColor.red.cgColor
                     self.wrongAnswerOrTimeOff()
                 }
             }
@@ -162,14 +167,14 @@ class QuestionViewController: UIViewController {
     
     func showAdvice(maxPercent:UInt32) {
         var message = "нет подсказок"
-        var rndPercent = (arc4random() % 1000) / 10
+        let rndPercent = (arc4random() % 1000) / 10
         let correctAnswer = questionBrain.getCorrectAnswer(questionNumber: questionBrain.questionNumber)
         switch(rndPercent) {
         case 0..<maxPercent:
             message = correctAnswer
             print("hi percent = \(maxPercent)")
         case maxPercent...100:
-            var wrongAnswers = answersForThisQuestion.filter {
+            let wrongAnswers = answersForThisQuestion.filter {
                 $0 != correctAnswer
             }
             message = wrongAnswers.randomElement()!
@@ -185,14 +190,14 @@ class QuestionViewController: UIViewController {
     
     func updateUI() {
         
-        // вывод вопроса *******************************
+        // вывод вопроса
         labelQuestion.text = questionBrain.getQuestion()
-        // вывод номера вопроса и суммы ***************************
+        // вывод номера вопроса и суммы
         questionNumber = questionBrain.getQuestionNumber()
         labelQuestionNumber.text = "Вопрос №" + String(questionNumber+1) //так как в массиве вопросы с 0
         labelSumm.text = String(arrQuestionAndSumm[questionNumber+1]) + " РУБ"
         answersForThisQuestion = questionBrain.getArrAnswers()
-        // вывод 4-х ответов ***************************
+        // вывод 4-х ответов
         var arrAnswers = answersForThisQuestion //массив ответов
         //сопоставляем случайный ответ каждой кнопке
         for button in arrAnswerButton {
