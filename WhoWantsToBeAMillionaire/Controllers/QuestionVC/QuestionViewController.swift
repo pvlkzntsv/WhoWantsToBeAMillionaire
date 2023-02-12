@@ -106,12 +106,24 @@ class QuestionViewController: UIViewController {
                 }
             }
             // определение правильный ответ или нет
-            if sender.title(for: .normal) == correctAnswer {
+            if self.questionNumber == 14 {//если выйграл миллион
+                self.soundManager.playSound(.wonMillion)
+                self.timerPlayerSeeAnswer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) {_ in
+                    let sumListViewController = SumListViewController()
+                    sumListViewController.modalPresentationStyle = .fullScreen
+                    sumListViewController.currentQuestion = self.questionNumber
+                    self.present(sumListViewController, animated: true)
+                    //зачисляем игроку сумму и только потом меняем номер вопроса
+                    
+                }
+                
+            } else if sender.title(for: .normal) == correctAnswer {
+                
                 // верный ответ переход на экран со списком вопросов
-
+                print(self.questionNumber)
                 self.soundManager.playSound(.correctAnswer)
                 //задержка чтобы игрок увидел какй ответ правильный+проигрывание музыки
-                self.timerPlayerSeeAnswer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) {_ in
+                self.timerPlayerSeeAnswer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) {_ in
                     let sumListViewController = SumListViewController()
                     sumListViewController.modalPresentationStyle = .fullScreen
                     sumListViewController.currentQuestion = self.questionNumber

@@ -18,9 +18,18 @@ class SumListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        if
+        
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) {
             timer in
-            self.dismiss(animated: true)
+            if self.currentQuestion == 14 {
+                let lossGaveViewController = LossGameViewController()
+                lossGaveViewController.playersSumm = 1000000
+                lossGaveViewController.modalPresentationStyle = .fullScreen
+                self.present(lossGaveViewController, animated: true)
+            } else {
+                self.dismiss(animated: true)
+            }
         }
         
         guard let currentQuestion = currentQuestion else { return }
