@@ -36,11 +36,13 @@ class QuestionViewController: UIViewController {
     
     var timerWaitAnswer = Timer() // тайимер ожидания ответа от пользователя(30 сек)
     var timerWaitCorrectAnswer = Timer() // таймер ожидания правильного ответа от программы(5 сек)
+    var timerPlayerSeeAnswer = Timer()
     
     var seconds = 0
     var questionBrain = QuestionBrain()
     var questionNumber:Int = 1
     var playerSum = 0
+    var soundManager = SoundsManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +61,16 @@ class QuestionViewController: UIViewController {
         buttonCall.subviews.first?.contentMode = .scaleAspectFit
         //создаем массив кнопок
         arrAnswerButton.append(contentsOf: [buttonAnswer1, buttonAnswer2, buttonAnswer3, buttonAnswer4])
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         updateUI()
+        soundManager.playSound(.timerSound)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        soundManager.stopPlay()
     }
 
     @IBAction func giveMyMoney(_ sender: UIButton) {
@@ -81,20 +85,17 @@ class QuestionViewController: UIViewController {
     @IBAction func buttonsAnswerPressed(_ sender: UIButton) {
         //блокирую все кнопки для нажатий-ждем ответа ведущего
         view.isUserInteractionEnabled = false
-        
+        soundManager.playSound(.answerAccepted)
         sender.layer.borderWidth = 5
         sender.layer.borderColor = UIColor.orange.cgColor
 
-        
-        
         // стоп таймера ожидания ответа и запуск таймера ожидания правильного ответа
         timerWaitAnswer.invalidate()
     
-        // MARK: TODO(dmitrii_er) - начало проигрывания музыки1
+       
+
         timerWaitCorrectAnswer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) {
             timer in
-           
-            // MARK: TODO(dmitrii_er) - окончание проигрывания музыки1
             let correctAnswer = self.questionBrain.getCorrectAnswer(questionNumber: self.questionNumber)
             //подсветка кнопки с правильным ответом
             for button in self.arrAnswerButton {
@@ -103,31 +104,29 @@ class QuestionViewController: UIViewController {
                     button.layer.borderColor = UIColor.green.cgColor
                 }
             }
-            // MARK: TODO(dmitrii_er) - сделать начисление денег и переход на экран, который показывает все вопросы
-            
-            
-            
             // определение правильный ответ или нет
             if sender.title(for: .normal) == correctAnswer {
                 // верный ответ переход на экран со списком вопросов
-                let sumListViewController = SumListViewController()
-                sumListViewController.modalPresentationStyle = .fullScreen
-                self.present(sumListViewController, animated: true)
-                //зачисляем игроку сумму и только потом меняем номер вопроса
-                self.questionBrain.playersSumm += arrQuestionAndSumm[self.questionNumber+1]
-                self.questionBrain.nextQuestion()
-                self.playerSum = self.questionBrain.playerSum()
+                self.soundManager.playSound(.correctAnswer)
+                //задержка чтобы игрок увидел какй ответ правильный+проигрывание музыки
+                self.timerPlayerSeeAnswer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) {_ in
+                    let sumListViewController = SumListViewController()
+                    sumListViewController.modalPresentationStyle = .fullScreen
+                    self.present(sumListViewController, animated: true)
+                    //зачисляем игроку сумму и только потом меняем номер вопроса
+                    self.questionBrain.playersSumm += arrQuestionAndSumm[self.questionNumber+1]
+                    self.questionBrain.nextQuestion()
+                    self.playerSum = self.questionBrain.playerSum()
+                }
             }
-            else {
-                // неверный ответ
-                self.wrongAnswerOrTimeOff()
-                
+            else {// неверный ответ
+                self.soundManager.playSound(.wrongAnswer)
+                self.timerPlayerSeeAnswer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) {_ in
+                    self.wrongAnswerOrTimeOff()
+                }
             }
         }
-        
-        
     }
-    
     
     @IBAction func adviceButtonPressed(_ sender: UIButton) {
         sender.isEnabled = false
@@ -164,13 +163,11 @@ class QuestionViewController: UIViewController {
         var message = "нет подсказок"
         var rndPercent = (arc4random() % 1000) / 10
         let correctAnswer = questionBrain.getCorrectAnswer(questionNumber: questionBrain.questionNumber)
-        
         switch(rndPercent) {
         case 0..<maxPercent:
             message = correctAnswer
             print("hi percent = \(maxPercent)")
         case maxPercent...100:
-            // MARK: TODO - не совсем верно считает вероятность при уже убранных кнопках(доделать)
             var wrongAnswers = answersForThisQuestion.filter {
                 $0 != correctAnswer
             }
@@ -226,7 +223,6 @@ class QuestionViewController: UIViewController {
             if self.seconds <= 0 {
                 self.timerWaitAnswer.invalidate()
                 self.wrongAnswerOrTimeOff()
-                
             }
         }
         
@@ -251,8 +247,7 @@ class QuestionViewController: UIViewController {
         self.present(lossGaveViewController, animated: true)
     }
     
-    
-    }
+}
     
     
     
