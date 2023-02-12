@@ -9,7 +9,7 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
-
+//ddd
     @IBOutlet weak var button50persent: UIButton!
     @IBOutlet weak var buttonHall: UIButton!
     @IBOutlet weak var buttonCall: UIButton!
