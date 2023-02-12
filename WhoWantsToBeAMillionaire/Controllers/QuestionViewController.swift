@@ -32,7 +32,7 @@ class QuestionViewController: UIViewController {
     
     
     var arrAnswerButton = [UIButton]() // массив кнопок с ответами
-    
+    var answersForThisQuestion: [String] = [] // свой массив с ответами, уменьшим его при выборе 50 на 50 совета
     
     var timerWaitAnswer = Timer() // тайимер ожидания ответа от пользователя(30 сек)
     var timerWaitCorrectAnswer = Timer() // таймер ожидания правильного ответа от программы(5 сек)
@@ -140,6 +140,8 @@ class QuestionViewController: UIViewController {
                 }
                 else {
                     button.superview!.alpha = 0
+                    //убираю из массива ответов ответы для двух спрятанных кнопок
+                    answersForThisQuestion = answersForThisQuestion.filter{$0 != button.title(for: .normal) }
                     twoHiddenButton += 1
                     if twoHiddenButton >= 2 { //хватит, если спрятали уже две кнопки
                         return
@@ -148,7 +150,7 @@ class QuestionViewController: UIViewController {
             }
         } else if sender.tag == 2 { //помощь зала
             buttonHall.setBackgroundImage( UIImage(named: "Advice-hall-spent"), for: .normal)
-            showAdvice(maxPercent: 50)
+            showAdvice(maxPercent: 70)
         } else if sender.tag == 3 { // звонок другу
             buttonCall.setBackgroundImage( UIImage(named: "Advice-call-spent"), for: .normal)
             showAdvice(maxPercent: 80)
@@ -169,7 +171,7 @@ class QuestionViewController: UIViewController {
             print("hi percent = \(maxPercent)")
         case maxPercent...100:
             // MARK: TODO - не совсем верно считает вероятность при уже убранных кнопках(доделать)
-            var wrongAnswers = questionBrain.getArrAnswers().filter {
+            var wrongAnswers = answersForThisQuestion.filter {
                 $0 != correctAnswer
             }
             message = wrongAnswers.randomElement()!
@@ -191,9 +193,9 @@ class QuestionViewController: UIViewController {
         questionNumber = questionBrain.getQuestionNumber()
         labelQuestionNumber.text = "Вопрос №" + String(questionNumber+1) //так как в массиве вопросы с 0
         labelSumm.text = String(arrQuestionAndSumm[questionNumber+1]) + " РУБ"
-        
+        answersForThisQuestion = questionBrain.getArrAnswers()
         // вывод 4-х ответов ***************************
-        var arrAnswers = questionBrain.getArrAnswers() //массив ответов
+        var arrAnswers = answersForThisQuestion //массив ответов
         //сопоставляем случайный ответ каждой кнопке
         for button in arrAnswerButton {
             guard let rndAnswer = arrAnswers.randomElement() else {
