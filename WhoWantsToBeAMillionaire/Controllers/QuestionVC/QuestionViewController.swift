@@ -82,6 +82,7 @@ class QuestionViewController: UIViewController {
         lossGameViewController.playersSumm = self.questionBrain.playersSumm
         lossGameViewController.modalPresentationStyle = .fullScreen
         self.present(lossGameViewController, animated: true)
+        soundManager.playSound(.wrongAnswer)
         
     }
     // MARK: ANSWERS BUTTONS PRESSED
@@ -182,7 +183,7 @@ class QuestionViewController: UIViewController {
         default:
             print("noprecent")
         }
-        let alert = UIAlertController(title: "Время идет, поторопись!", message: "Правильный ответ: \(message)", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Время идет, поторопись!", message: "\(maxPercent) процентов что это ответ: \(message)", preferredStyle: .alert)
         let alertButton = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alert.addAction(alertButton)
         self.present(alert, animated: true, completion: nil)
