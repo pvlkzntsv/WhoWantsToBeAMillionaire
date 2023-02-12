@@ -112,6 +112,7 @@ class QuestionViewController: UIViewController {
                 // верный ответ переход на экран со списком вопросов
                 let sumListViewController = SumListViewController()
                 sumListViewController.modalPresentationStyle = .fullScreen
+                sumListViewController.currentQuestion = self.questionNumber
                 self.present(sumListViewController, animated: true)
                 //зачисляем игроку сумму и только потом меняем номер вопроса
                 self.questionBrain.playersSumm += arrQuestionAndSumm[self.questionNumber+1]
