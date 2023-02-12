@@ -40,4 +40,8 @@ struct SoundsManager {
         player = try? AVAudioPlayer(contentsOf: url)
         player?.play()
     }
+    
+    func stopPlay() {
+        player?.stop()
+    }
 }
